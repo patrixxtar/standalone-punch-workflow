@@ -1,5 +1,5 @@
 @echo off
-cd /d "%~dp0"
+cd /d "%~dp0scripts"
 echo --- Gmail forwarding confirmation code for your alias (if any) ---
 python\python.exe -W ignore otp_mail.py --verify
 echo.

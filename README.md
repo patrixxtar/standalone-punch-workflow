@@ -5,27 +5,28 @@ the only program in the folder is Microsoft-signed `python.exe` from python.org.
 
 ## Files
 ```
+README.md, .gitignore
 unblock.bat         run once after unzipping: stops the Windows "Run / Don't run" security prompt
-start.bat           run the scheduler in the background (punches at the NY times in config.json)
+start.bat           run the scheduler in the background (punches at the NY times in scripts\config.json)
 stop.bat            stop it
 punch_now.bat       manual live punch, visible browser  <- run this FIRST, once
 test_dry_run.bat    whole flow without clicking Punch
 test_vpn.bat        VPN connect test
 test_otp.bat        shows your Gmail forwarding code / newest UKG code from the shared mailbox
-config.example.json copy to config.json and fill in
-*.py                the scripts;  python\  private runtime (created by setup.bat)
-```
 
-## Prepare the package (person sharing it, once)
-1. Put the files in a folder, run `setup.bat` (downloads Python 3.12 embeddable + libraries, needs internet once).
-2. Test with `test_vpn.bat`, then `test_dry_run.bat`.
-3. Delete your `config.json`, `chrome_profile\`, `screenshots\`, `*.log`, `fired_slots.json`, then zip the folder.
+scripts\
+  *.py                  the scripts
+  python\               bundled private Python runtime
+  config.example.json   copy to config.json and fill in
+  config.json, chrome_profile\, screenshots\, automation.log, fired_slots.json
+                        created on your machine as you use it (never shared / git-ignored)
+```
 
 ## Installation
 1. Unzip to e.g. `C:\Automation` (not Desktop/OneDrive/Downloads), then double-click `unblock.bat` once.
    (Windows marks every file from a downloaded zip as "from the internet", which causes the *Run / Don't run* prompt
    on each script. Alternative: before unzipping, right-click the zip → Properties → tick **Unblock** → OK.)
-2. Copy `config.example.json` → `config.json` and fill in:
+2. In the `scripts` folder, copy `config.example.json` → `config.json` and fill in:
    - `EMAIL_USER` / `EMAIL_PASS` — Microsoft login. VPN uses the same login (username = part before `@`).
    - `SECRET_KEY` — TOTP seed from Microsoft Authenticator setup. Required.
    - `UKG_URL`, `KRONOS_URL`, `UKG_MFA_EMAIL_VALUE` — as given by the person sharing.
@@ -48,7 +49,7 @@ run headless). Turn on *Save Password* + *Auto Connect* in FortiClient to make t
 
 ## Where to look when something fails
 - Windows toast notifications report success/failure.
-- `automation.log` — errors only.  `screenshots\` — last 20 screenshots of failures/successes.
+- `scripts\automation.log` — errors only.  `scripts\screenshots\` — last 20 screenshots of failures/successes.
 - VPN never connects → `automation.log` lists the text FortiClient showed. The script clicks *REMOTE ACCESS*, then
   *Connect* on the VPN that has a **Clear Certificate** button. If none of your VPNs has one, set `"VPN_NAME"` in
   config.json to the VPN you want (e.g. `"NQX Taytay_IPSEC"`). Keep FortiClient's window visible and don't touch the
