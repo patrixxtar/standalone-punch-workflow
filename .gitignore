@@ -1,0 +1,6 @@
+*.log
+*.pyc
+fired_slots.json
+config.json
+chrome_profile/
+screenshots/

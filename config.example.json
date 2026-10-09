@@ -1,0 +1,27 @@
+{
+  "EMAIL_USER": "you@company.com",
+  "EMAIL_PASS": "your-microsoft-password",
+  "SECRET_KEY": "YOUR-TOTP-SEED-FROM-AUTHENTICATOR-SETUP",
+  "VPN_PASS": "",
+  "UKG_URL": "https://cnqsso.ultipro.ca/",
+  "KRONOS_URL": "https://nordialaval-sso.prd.mykronos.com/wfd/home",
+  "UKG_MFA_EMAIL_VALUE": "2",
+  "MFA_MANUAL_WAIT_SEC": 180,
+  "OTP_API_URL": "https://mail.ssqa.digital/api/catchall-otp.php",
+  "OTP_API_KEY": "Quantrics2026",
+  "OTP_DOMAIN": "ssqa.digital",
+  "OTP_ALIAS": "",
+  "OTP_POLL_TIMEOUT_SEC": 120,
+  "FORTICLIENT_EXE": "C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe",
+  "VPN_CLICK_XY": [
+    600,
+    500
+  ],
+  "VPN_CONNECT_TIMEOUT_SEC": 105,
+  "SCHEDULES": [
+    "07:44",
+    "17:00"
+  ],
+  "CATCHUP_WINDOW_MIN": 15,
+  "HEADLESS": true
+}
